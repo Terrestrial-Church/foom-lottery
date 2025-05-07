@@ -1,0 +1,2 @@
+lib/lottery/circuit_artifacts/*.zkey -text
+lib/lottery/circuit_artifacts/*.r1cs -text
