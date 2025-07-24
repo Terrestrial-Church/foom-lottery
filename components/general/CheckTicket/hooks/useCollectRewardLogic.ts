@@ -96,8 +96,10 @@ export function useCollectRewardLogic({
       if (_refund && _refund !== 0n) {
         simulateParams['value'] = _refund
       }
-      const { request } = await publicClient.simulateContract(simulateParams)
+      const simulation = await publicClient.simulateContract(simulateParams)
+      _log('Simulation result:', simulation)
 
+      const { request } = simulation
       const tx = await walletClient.writeContract(request)
       handleStatus(`Collect tx sent: ${tx}`)
 
